@@ -116,39 +116,41 @@ async def doc(bot, update):
 
     await ms.edit("Tʀyɪɴɢ Tᴏ Uᴩʟᴏᴀᴅɪɴɢ....")
     type = update.data.split("_")[1]
-    try:
-        if type == "document":
-            await bot.send_document(
-                update.message.chat.id,
-                document=file_path,
-                thumb=ph_path, 
-                caption=caption, 
-                progress=progress_for_pyrogram,
-                progress_args=("Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
-        elif type == "video": 
-            await bot.send_video(
-		update.message.chat.id,
-	        video=file_path,
-	        caption=caption,
-		thumb=ph_path,
-		duration=duration,
-	        progress=progress_for_pyrogram,
-		progress_args=("Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
-        elif type == "audio": 
-            await bot.send_audio(
-		update.message.chat.id,
-		audio=file_path,
-		caption=caption,
-		thumb=ph_path,
-		duration=duration,
-	        progress=progress_for_pyrogram,
-	        progress_args=("Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
-    except Exception as e:          
-        os.remove(file_path)
-        if ph_path:
-            os.remove(ph_path)
-        return await ms.edit(f" Eʀʀᴏʀ {e}")
- 
-    await ms.delete() 
-    os.remove(file_path) 
-    if ph_path: os.remove(ph_path) 
+
+try:
+    if type == "document":
+        await bot.send_document(
+            update.message.chat.id,
+            document=file_path,
+            thumb=ph_path, 
+            caption=caption, 
+            progress=progress_for_pyrogram,
+            progress_args=("Upload Started....", update.message, time.time()))
+    elif type == "video": 
+        await bot.send_video(
+            update.message.chat.id,
+            video=file_path,
+            caption=caption,
+            thumb=ph_path,
+            duration=duration,
+            progress=progress_for_pyrogram,
+            progress_args=("Upload Started....", update.message, time.time()))
+    elif type == "audio": 
+        await bot.send_audio(
+            update.message.chat.id,
+            audio=file_path,
+            caption=caption,
+            thumb=ph_path,
+            duration=duration,
+            progress=progress_for_pyrogram,
+            progress_args=("Upload Started....", update.message, time.time()))
+except Exception as e:          
+    os.remove(file_path)
+    if ph_path:
+        os.remove(ph_path)
+    return await update.message.edit_text(f"Error: {e}")
+
+await update.message.delete() 
+os.remove(file_path) 
+if ph_path: 
+    os.remove(ph_path)
