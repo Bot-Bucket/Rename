@@ -67,9 +67,6 @@ async def refunc(client, message):
             reply_to_message_id=file.id,
             reply_markup=InlineKeyboardMarkup(button)
         )
-
-
-
 @Client.on_callback_query(filters.regex("upload"))
 async def doc(bot, update):    
     new_name = update.message.text
@@ -79,10 +76,10 @@ async def doc(bot, update):
 
     ms = await update.message.edit("Tʀyɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅɪɴɢ....")    
     try:
-     	path = await bot.download_media(message=file, file_name=file_path, progress=progress_for_pyrogram,progress_args=("Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))                    
+        path = await bot.download_media(message=file, file_name=file_path, progress=progress_for_pyrogram,progress_args=("Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))                    
     except Exception as e:
-     	return await ms.edit(e)
-     	     
+        return await ms.edit(e)
+             
     duration = 0
     try:
         metadata = extractMetadata(createParser(file_path))
@@ -115,34 +112,36 @@ async def doc(bot, update):
          img.save(ph_path, "JPEG")
 
     await ms.edit("Tʀyɪɴɢ Tᴏ Uᴩʟᴏᴀᴅɪɴɢ....")
-    type = update.data.split("_")[1]
     try:
-        if type == "document":
-            await bot.send_document(
-                update.message.chat.id,
-                document=file_path,
-                thumb=ph_path, 
-                caption=caption, 
-                progress=progress_for_pyrogram,
-                progress_args=("Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
-        elif type == "video": 
-            await bot.send_video(
-		update.message.chat.id,
-	        video=file_path,
-	        caption=caption,
-		thumb=ph_path,
-		duration=duration,
-	        progress=progress_for_pyrogram,
-		progress_args=("Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
-        elif type == "audio": 
-            await bot.send_audio(
-		update.message.chat.id,
-		audio=file_path,
-		caption=caption,
-		thumb=ph_path,
-		duration=duration,
-	        progress=progress_for_pyrogram,
-	        progress_args=("Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
+        # Check if update.data exists before accessing it
+        if hasattr(update, 'data'):
+            type = update.data.split("_")[1]
+            if type == "document":
+                await bot.send_document(
+                    update.message.chat.id,
+                    document=file_path,
+                    thumb=ph_path, 
+                    caption=caption, 
+                    progress=progress_for_pyrogram,
+                    progress_args=("Uᴩʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
+            elif type == "video": 
+                await bot.send_video(
+                    update.message.chat.id,
+                    video=file_path,
+                    caption=caption,
+                    thumb=ph_path,
+                    duration=duration,
+                    progress=progress_for_pyrogram,
+                    progress_args=("Uᴩʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
+            elif type == "audio": 
+                await bot.send_audio(
+                    update.message.chat.id,
+                    audio=file_path,
+                    caption=caption,
+                    thumb=ph_path,
+                    duration=duration,
+                    progress=progress_for_pyrogram,
+                    progress_args=("Uᴩʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
     except Exception as e:          
         os.remove(file_path)
         if ph_path:
@@ -152,6 +151,9 @@ async def doc(bot, update):
     await ms.delete() 
     os.remove(file_path) 
     if ph_path: os.remove(ph_path) 
+
+
+
 
 
 
