@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import (
     InlineKeyboardButton, InlineKeyboardMarkup, ForceReply)
-
+from thumb_&_cap import get_thumbnail, get_caption
 
 @Client.on_message(filters.private & filters.reply)
 async def refunc(client, message):
@@ -9,49 +9,37 @@ async def refunc(client, message):
         new_name = message.text
         await message.delete()
         media = await client.get_messages(message.chat.id, message.reply_to_message.id)
-        file = media.reply_to_message.document or media.reply_to_message.video or media.reply_to_message.audio
+        file = media.reply_to_message.document or media.reply_to_message.video
         filename = file.file_name
-        types = file.mime_type.split("/")
-        mime = types[0]
-        mg_id = media.reply_to_message.id
+        mime = file.mime_type.split("/")[0]
+        mg_id = media.reply_to_message.message_id
         try:
             out = new_name.split(".")
-            out[1]
-            out_name = out[-1]
             out_filename = new_name
             await message.reply_to_message.delete()
+            # Constructing inline keyboard based on file type
             if mime == "video":
-                markup = InlineKeyboardMarkup([[
-                    InlineKeyboardButton("📁 Document", callback_data="doc"),
-                    InlineKeyboardButton("🎥 Video", callback_data="vid")]])
-            elif mime == "audio":
-                markup = InlineKeyboardMarkup([[InlineKeyboardButton(
-                    "📁 Document", callback_data="doc"), InlineKeyboardButton("🎵 audio", callback_data="aud")]])
+                markup = InlineKeyboardMarkup([
+                    [InlineKeyboardButton("📁 Document", callback_data="doc")],
+                    [InlineKeyboardButton("🎥 Rename to video", callback_data="vid")]
+                ])
             else:
-                markup = InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("📁 Document", callback_data="doc")]])
-            # dont chenge this message.reply_text
-            await message.reply_text(f"**Select the output file type**\n**Output FileName** :- ```{out_filename}```", reply_to_message_id=mg_id, reply_markup=markup)
+                markup = InlineKeyboardMarkup([
+                    [InlineKeyboardButton("📁 Rename to document", callback_data="doc")],
+                    [InlineKeyboardButton("🎥 Rename to video", callback_data="vid")]
+                ])
+            # Generating custom thumbnail and caption
+            thumb_url = get_thumbnail(file)
+            caption_text = get_caption(out_filename)
+            await client.send_document(
+                chat_id=message.chat.id,
+                document=file.file_id,
+                caption=caption_text,
+                reply_markup=markup,
+                thumb=thumb_url
+            )
 
-        except:
-            try:
-                out = filename.split(".")
-                out_name = out[-1]
-                out_filename = new_name + "." + out_name
-            except:
-                await message.reply_to_message.delete()
-                await message.reply_text("**Error** :  No  Extension in File, Not Supporting", reply_to_message_id=mg_id)
-                return
+        except Exception as e:
+            print(e)
             await message.reply_to_message.delete()
-            if mime == "video":
-                markup = InlineKeyboardMarkup([[InlineKeyboardButton(
-                    "📁 Document", callback_data="doc"), InlineKeyboardButton("🎥 Video", callback_data="vid")]])
-            elif mime == "audio":
-                markup = InlineKeyboardMarkup([[InlineKeyboardButton(
-                    "📁 Document", callback_data="doc"), InlineKeyboardButton("🎵 audio", callback_data="aud")]])
-            else:
-                markup = InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("📁 Document", callback_data="doc")]])
-            # dont chenge this message.reply_text
-            await message.reply_text(f"**Select the output file type**\n**Output FileName** :- ```{out_filename}```",
-                                     reply_to_message_id=mg_id, reply_markup=markup)
+            await message.reply_text("**Error:** No extension found in the new file name.", reply_to_message_id=mg_id)
