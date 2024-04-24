@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import (
     InlineKeyboardButton, InlineKeyboardMarkup, ForceReply)
-from thumb_&_cap import get_thumbnail, get_caption
+from thumb_&_cap.py import get_thumbnail, get_caption
 
 @Client.on_message(filters.private & filters.reply)
 async def refunc(client, message):
