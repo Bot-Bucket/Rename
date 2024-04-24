@@ -6,7 +6,7 @@ from config import Config, Txt
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 async def progress_for_pyrogram(current, total, ud_type, message, start_time):
-    now = time.time()
+    now = time.monotonic()
     diff = now - start_time
 
     if round(diff % 5.00) == 0 or current == total:
