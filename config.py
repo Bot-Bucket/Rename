@@ -84,15 +84,11 @@ Exᴀᴍᴩʟᴇ:- /set_caption 📕 Fɪʟᴇ Nᴀᴍᴇ: {filename}
 """
 
 #⚠️ Dᴏɴ'ᴛ Rᴇᴍᴏᴠᴇ Oᴜʀ Cʀᴇᴅɪᴛꜱ @ᴩyʀᴏ_ʙᴏᴛᴢ🙏🥲
-    DEV_TXT = """<b><u>Sᴩᴇᴄɪᴀʟ Tʜᴀɴᴋꜱ & Dᴇᴠᴇʟᴏᴩᴇʀꜱ</b></u>
-» ⛩️ 𝗔𝗻𝗶𝗺𝗲 ⛩️ : <a href=https://t.me/addlist/xgg5E05xx1BlNDE1>⛩️ 𝗔𝗻𝗶𝗺𝗲 ⛩️</a>
-» 💰 𝗘𝗮𝗿𝗻 𝗠𝗼𝗻𝗲𝘆 𝗙𝗿𝗲𝗲 💰 : <a href=https://t.me/+A9ZOl-N6WGY1Mjg1>💰 𝗘𝗮𝗿𝗻 𝗠𝗼𝗻𝗲𝘆 𝗙𝗿𝗲𝗲 💰</a>
-• ❣️ <a href=https://t.me/addlist/xgg5E05xx1BlNDE1>⛩️ 𝗔𝗻𝗶𝗺𝗲 ⛩️</a>
-• ❣️ <a href=https://t.me/+A9ZOl-N6WGY1Mjg1>💰 𝗘𝗮𝗿𝗻 𝗠𝗼𝗻𝗲𝘆 𝗙𝗿𝗲𝗲 💰</a>
-• ❣️ <a href=https://t.me/addlist/xgg5E05xx1BlNDE1>𝗠𝗼𝗧𝗲𝗰𝗵 𝗬𝗧</a>
-• ❣️ <a href=https://t.me/+A9ZOl-N6WGY1Mjg1>💰 𝗘𝗮𝗿𝗻 𝗠𝗼𝗻𝗲𝘆 𝗙𝗿𝗲𝗲 💰</a>
-• ❣️ <a href=https://t.me/addlist/xgg5E05xx1BlNDE1>𝗚𝗶𝘁𝗛𝘂𝗯 𝗡𝗢𝗢𝗕</a>
-• ❣️ <a href=https://t.me/+A9ZOl-N6WGY1Mjg1>💰 𝗘𝗮𝗿𝗻 𝗠𝗼𝗻𝗲𝘆 𝗙𝗿𝗲𝗲 💰</a> """
+    DEV_TXT = """<b><u>ᴊᴏɪɴ ᴏᴜʀ ᴇxᴄʟᴜsɪᴠᴇ ᴄʜᴀɴɴᴇʟ</b></u>
+» ⛩️ 𝗔𝗻𝗶𝗺𝗲 ⛩️ : <a href=https://t.me/addlist/xgg5E05xx1BlNDE1>𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲</a>
+» 💰 𝗘𝗮𝗿𝗻 𝗠𝗼𝗻𝗲𝘆 💰 : <a href=https://t.me/+A9ZOl-N6WGY1Mjg1>𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲</a>
+• 💦 𝗛𝗮𝗻𝗶𝗺𝗲 💦 : <a href=https://t.me/addlist/xgg5E05xx1BlNDE1>𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲</a>
+• ⚡ 𝗢𝘂𝗿 𝗡𝗲𝘁𝘄𝗼𝗿𝗸 ⚡ : <a href=https://t.me/+A9ZOl-N6WGY1Mjg1>𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲</a>
 
     PROGRESS_BAR = """<b>\n
 ╭━━━━❰ᴘʀᴏɢʀᴇss ʙᴀʀ❱━➣
