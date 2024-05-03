@@ -90,12 +90,5 @@ Exᴀᴍᴩʟᴇ:- /set_caption 📕 Fɪʟᴇ Nᴀᴍᴇ: {filename}
 • 💦 𝗛𝗮𝗻𝗶𝗺𝗲 💦 : <a href=https://t.me/addlist/xgg5E05xx1BlNDE1>𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲</a>
 • ⚡ 𝗢𝘂𝗿 𝗡𝗲𝘁𝘄𝗼𝗿𝗸 ⚡ : <a href=https://t.me/+A9ZOl-N6WGY1Mjg1>𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲</a>
 
-  PROGRESS_BAR_TXT = """<b>\n
-╭━━━━❰ᴘʀᴏɢʀᴇss ʙᴀʀ❱━➣
-┣⪼ 🗃️ Sɪᴢᴇ: {1} | {2}
-┣⪼ ⏳️ Dᴏɴᴇ : {0}%
-┣⪼ 🚀 Sᴩᴇᴇᴅ: {3}/s
-┣⪼ ⏰️ Eᴛᴀ: {4}
-╰━━━━━━━━━━━━━━━➣ </b>"""
 
-
+    
